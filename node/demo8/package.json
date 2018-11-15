@@ -1,0 +1,19 @@
+{
+  "name": "demo8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "macha": "0.0.0",
+    "should": "^13.2.3",
+    "supertest": "^3.1.0"
+  },
+  "devDependencies": {
+    "express": "^4.16.3"
+  }
+}

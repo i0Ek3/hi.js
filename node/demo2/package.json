@@ -1,0 +1,22 @@
+{
+  "name": "demo2",
+  "version": "1.0.0",
+  "description": "2nd exc",
+  "main": "index.js",
+  "scripts": {
+    "test": "uname"
+  },
+  "repository": {
+    "type": "git",
+    "url": "i0Ek3"
+  },
+  "keywords": [
+    "ian"
+  ],
+  "author": "i0Ek3",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "utility": "^1.14.0"
+  }
+}

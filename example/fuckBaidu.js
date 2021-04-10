@@ -1,11 +1,3 @@
-// 
-// fuckBaidu.js
-// @ianpasm(kno30826@gmail.com)
-// 2018-08-06 22:01:32
-// 
-// Foward from the author: http://weibo.com/fanweixiao
-//
-
 (function() {
   var jQuery_cdn = "https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js";
   var jQuery_bpopup_cdn = "https://cdn.jsdelivr.net/gh/dinbror/bpopup@0.11.0/jquery.bpopup.min.js";

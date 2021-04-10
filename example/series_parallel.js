@@ -1,10 +1,4 @@
-// 
-// series_parallel.js
-// @i0Ek3(kno30826@gmail.com)
-// 2018-08-19 10:50:17
-//
 // 并行和串行的结合，可以避免过分占用系统资源。
-// 
 
 var items = [ 1, 2, 3, 4, 5, 6 ];
 var results = [];

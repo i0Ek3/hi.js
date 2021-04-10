@@ -1,9 +1,3 @@
-// 
-// generateRandomStr.js
-// @ianpasm(kno30826@gmail.com)
-// 2018-08-13 11:17:17
-// 
-
 function random_str(length) {
   var ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   ALPHABET += 'abcdefghijklmnopqrstuvwxyz';

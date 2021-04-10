@@ -1,11 +1,4 @@
-// 
-// prototype.js
-// @i0Ek3(kno30826@gmail.com)
-// 2018-08-18 10:46:54
-// 
-// 继承
-// 大多数面向对象的编程语言的继承是通过类class来实现的，而JavaScript的继承是通过“原型对象”（prototype）来实现的。
-//
+// 继承, 大多数面向对象的编程语言的继承是通过类class来实现的，而JavaScript的继承是通过“原型对象”（prototype）来实现的。
 
 fucntion f() {}
 typeof f.prototype  // "object"

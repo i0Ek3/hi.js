@@ -1,11 +1,5 @@
-// 
-// parallel.js
-// @i0Ek3(kno30826@gmail.com)
-// 2018-08-19 10:39:03
-//
-//
 // 并行执行--让所有异步任务同时执行。
-//
+
 var items = [ 1, 2, 3, 4, 5, 6 ];
 var results = [];
 
@@ -28,5 +22,3 @@ items.forEach(function(item) {
         }
     })
 });
- 
- 

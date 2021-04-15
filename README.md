@@ -15,9 +15,11 @@ coming soon...
 - example
 - nodecourse
 - hi.js
+- hi.css
 
 ## YSK
 
+> JavaScript
 - `let` same with `var`
 - Number/String/Symbol/Undefined/Null/Object/Array/Boolean
 - comma is optional
@@ -35,6 +37,22 @@ coming soon...
 - use keyword `debugger` and `console.log()` to debug code or F12 on Chrome browser
 - becareful `hoisting(声明提升)`
 - you cannot use undefined var in "strict mode" which declared on the top of code or function with "use strict"
+
+> [CSS: Cascading Style Sheets](https://drafts.csswg.org/css-display/)
+- selector {attr:value; ...;}
+    - p {color:red; text-align:center;}
+- # represents id on CSS
+    - #para1 {color:red; text-align:center;}
+- . represents class selector in CSS
+    - .center {text-align:center;}
+- style sheet
+    - external style sheet: <link rel="stylesheet" type="text/css" href="hi.css">
+    - internal style sheet: <style>css code</style>
+    - inline style: <p style="color:red;text-align:center">hi.js</p>
+
+> HTML
+
+
 
 ## Standard
 

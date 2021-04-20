@@ -1,6 +1,6 @@
 # hi.js
 
-> Hi JavaScript.
+> Hi JavaScript/HTML/CSS.
 
 ## Purpose
 
@@ -8,7 +8,9 @@ Re-learning JavaScript/HTML/CSS and make a simple demo `hi.js`. JavaScript's syn
 
 ## Features
 
-coming soon...
+- play video planet
+- [WIP]show your profile page
+- ...
 
 ## Structure
 
@@ -16,6 +18,7 @@ coming soon...
 - nodecourse
 - hi.js
 - hi.css
+- hi.html
 
 ## YSK
 
@@ -41,7 +44,7 @@ coming soon...
 > [CSS: Cascading Style Sheets](https://drafts.csswg.org/css-display/)
 - selector {attr:value; ...;}
     - p {color:red; text-align:center;}
-- # represents id on CSS
+- `#` represents id on CSS
     - #para1 {color:red; text-align:center;}
 - . represents class selector in CSS
     - .center {text-align:center;}
@@ -51,13 +54,12 @@ coming soon...
     - inline style: <p style="color:red;text-align:center">hi.js</p>
 
 > HTML
-
+- just see example hi.html
 
 
 ## Standard
 
-- ES6
-- ES5
+This repo support JavaScript ES6, HTML5 and CSS3.
 
 ## Credit
 

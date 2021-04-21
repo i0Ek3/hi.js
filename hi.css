@@ -1,20 +1,28 @@
-h1
+h
 {
-    color:red;
+    color:black;
     text-align:center;
-    font-size:20pt;
+    font-size:22pt;
 }
 
 p
 {
     color:blue;
-    margin-left:20px;
-    margin-right:20px;
+    text-align:center;
+    font-size:18pt;
+}
+
+a
+{
+    color:red;
+    font-size:10pt;
 }
 
 body
 {
-    color:white;
+    background-image:url(./media/hijs.png);
+    background-size: 100% 100%;
     text-align:center;
+    color:white;
     font-size:20pt;
 }

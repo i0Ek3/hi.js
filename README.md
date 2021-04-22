@@ -18,7 +18,26 @@ Re-learning JavaScript/HTML/CSS and make a simple demo `hi.js`. JavaScript's syn
 - nodecourse
 - hi.js
 - hi.css
+- hi.scss
 - hi.html
+
+## Install & Run
+
+This demo need follows package to run:
+
+- node/npm: run the JavaScript code
+    - `brew install node` 
+- sass: convert .scss to .css
+    - `brew install sass/sass/sass` // install sass for macOS
+    - use command `sass hi.scss [save_to_new_name.css]` to convert 
+
+And then if you want to see the effect of this demo, please run follows command:
+
+- `./hi hi.html`
+
+## hi.js Sample
+
+![page.png](https://github.com/i0Ek3/hi.js/blob/master/media/page.png)
 
 ## YSK
 
@@ -46,12 +65,15 @@ Re-learning JavaScript/HTML/CSS and make a simple demo `hi.js`. JavaScript's syn
     - p {color:red; text-align:center;}
 - `#` represents id on CSS
     - #para1 {color:red; text-align:center;}
-- . represents class selector in CSS
+- `.` represents class selector in CSS
     - .center {text-align:center;}
 - style sheet
     - external style sheet: <link rel="stylesheet" type="text/css" href="hi.css">
     - internal style sheet: <style>css code</style>
-    - inline style: <p style="color:red;text-align:center">hi.js</p>
+    - inline style: `<p style="color:red;text-align:center">hi.js</p>`
+- Sass
+    - represent by .scss, it is a pre-processor of CSS
+    - to support scss, we need install sass with command: `npm install -g sass`
 
 > HTML
 - just see example hi.html

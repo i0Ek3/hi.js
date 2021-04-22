@@ -1,0 +1,19 @@
+$bgcolor1: lightblue;
+$bgcolor2: #000000;
+$bgcolor3: #00ff00;
+$textcolor: darkblue;
+$fontsize: 18px;
+
+h {
+    color: #ff0000;
+}
+
+p {
+    color: #0000ff;
+}
+
+body {
+    background-color: $bgcolor;
+    color: $textcolor;
+    font-size: $fontsize;
+}

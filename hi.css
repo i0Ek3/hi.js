@@ -1,28 +1,57 @@
 h
 {
     color:black;
+    
     text-align:center;
-    font-size:22pt;
+    text-shadow:2px 2px #FF0000;
+    
+    font-size:26pt;
 }
 
 p
 {
-    color:blue;
+    color:#000000;
+
+    text-indent:50px;
     text-align:center;
+    
     font-size:18pt;
+}
+
+p1
+{
+    color:#000000;
+
+    font-size:10pt;
+    font-style:italic;
 }
 
 a
 {
-    color:red;
-    font-size:10pt;
+    color:#0000ff;
+
+    hover:#ff00ff;
+    
+    text-align:justify;
+    text-decoration:none;
+    text-shadow:2px 2px #000000;
+
+    font-size:26pt;
+    font-style:italic;
+    font-weight:lighter;
 }
 
 body
 {
     background-image:url(./media/hijs.png);
-    background-size: 100% 100%;
+    background-repeat:repeat-x;
+    background-size:100% 100%;
+    background-position:right top;
+
     text-align:center;
+    
     color:white;
+    
+    font-family:Monospace;
     font-size:20pt;
 }

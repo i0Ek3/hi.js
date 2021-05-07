@@ -5,15 +5,15 @@ $textcolor: darkblue;
 $fontsize: 18px;
 
 h {
-    color: #ff0000;
+    color: $bgcolor2;
 }
 
 p {
-    color: #0000ff;
+    color: $bgcolor3;
 }
 
 body {
-    background-color: $bgcolor;
+    background-color: $bgcolor1;
     color: $textcolor;
     font-size: $fontsize;
 }

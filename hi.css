@@ -43,15 +43,29 @@ a
 
 body
 {
-    background-image:url(./media/hijs.png);
-    background-repeat:repeat-x;
-    background-size:100% 100%;
-    background-position:right top;
+    background-image:url(./media/gray.png);
+    background-repeat: repeat-x;
+    background-size:25% 30%;
 
     text-align:center;
     
-    color:white;
-    
     font-family:Monospace;
     font-size:20pt;
+}
+
+@media only screen and (orientation: landscape) {
+    body {
+        background-color: black;
+    }
+}
+
+video {
+    width: 60%;
+    height: 30%;
+    position: buttom;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }

@@ -63,6 +63,8 @@ video {
     width: 60%;
     height: 30%;
     position: buttom;
+    z-index: 2;
+    opacity: 0.5;
 }
 
 img {

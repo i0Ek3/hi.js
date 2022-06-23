@@ -115,7 +115,6 @@ WIP.
     - 顶部导航条
   - z-index
     - 数值大的压盖住数值小的
-
 - 绝对位置：absolute
   - 绝对位置脱标
   - 参考点
@@ -128,6 +127,48 @@ WIP.
   - 用途
     - 微调元素
     - 做绝对定位的参考，子绝父相
+
+### 08 CSS3 Selector
+
+- 原本的选择器
+
+  - 标签选择器：div
+  - 类名选择器：.box
+  - 伪类选择器：:link, :active, :visited, :hover
+  - ID 选择器：#box
+  - 后代选择器：div p
+  - 交集选择器：div.box
+  - 并集选择器：div,p,span
+  - 子代选择器：div>p
+  - 通配符：*
+  - 选中 div 后面相邻的第一个 p：div+p
+  - 选中 div 后面所有的 p：div~p
+
+- CSS3 中新增的选择器
+
+  - 属性选择器：[]
+
+    ![](http://img.smyhvae.com/20180207_1500.png)
+
+  - 结构伪类选择器：`:`
+
+  - 伪元素选择器：`::`![](http://img.smyhvae.com/20180207_1503.png)
+
+### 09 CSS3 Attr
+
+- 文本
+  - 设置文本阴影：`text-shadow: 20px 27px 22px pink;`，四个参数分别表示为水平位移、垂直位移、模糊程度、阴影颜色
+- 盒模型：CSS3 中的定义，允许开发人员**指定盒子宽度和高度的计算方式**
+  - `box-sizing`
+    - 外加模式：`content-box`，CSS 中的默认方式
+    - 内减模式：`border-box`
+- 私有前缀：用来处理兼容性问题的常见方法
+- 边框
+  - 边框圆角
+    - `border-radius: 20px 60px 100px 140px;`表示为从左上开始，顺时针赋值。如果当前角没有值，取对角的值
+    - `border-radius: 60px;`表示为四个角的半径都相同
+  - 边框阴影
+    - `box-shadow: 15px 21px 48px -2px #666;`，其中的五个值分别表示为水平偏移、垂直偏移、模糊程度、阴影大小、阴影颜色
 
 ## 03 CSS in Advanced
 
@@ -165,4 +206,4 @@ WIP.
 
 ### 07 Performance
 
-WIP.
+###### WIP.

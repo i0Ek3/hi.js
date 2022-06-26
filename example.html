@@ -75,14 +75,105 @@
             color: black;
         }
 
-        div {
-            width: 100px;
-            height: 100px;
-            border: 2px black;
+        .item {
             position: absolute;
-            top: 400px;
-            left: 250px;
-            box-shadow: 15px 21px 48px -2px #666;
+            left: 0;
+            bottom: 300px;
+            width: 100%;
+            height: 80px;
+            background-color: cyan;
+            transition: all .5s;
+            transform: scale(1);
+        }
+
+        .img {
+            width: 1000px;
+            margin: 100px auto;
+        }
+
+        .img div {
+            width: 300px;
+            height: 150px;
+            float: left;
+            margin-right: 15px;
+            color: white;
+            text-align: center;
+            font: 400 30px/150px “宋体”;
+        }
+
+        .img .img1 {
+            transition: all 1s;
+        }
+
+        .img .img2 {
+            transition: all 2s;
+        }
+        
+        .img .img3 {
+            transition: all 2s;
+        }
+
+        .img .img1:hover {
+            transform: scale(2, 0.5);
+        }
+
+        .img > div {
+            width: 300px;
+            height: 150px;
+            border: 1px solid #000;
+            float: left;
+            margin-right: 30px;
+        }
+
+        div:nth-child(2) {
+            transition: all 1s;
+        }
+
+        div:nth-child(2):hover {
+            transform: translate(50%, -50%);
+        }
+
+        .img3:hover {
+            transform: rotate(-405deg);
+        }
+
+        .box {
+            width: 300px;
+            height: 440px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .box img {
+            width: 100%;
+            transition: all 1.5s;
+            position: absolute;
+            transform-origin: center bottom;
+            box-shadow: 0 0 3px 0 #666;
+        }
+
+        .box:hover img:nth-child(3) {
+            transform: rotate(-10deg);
+        }
+
+        .box:hover img:nth-child(2) {
+            transform: rotate(-20deg);
+        }
+
+        .box:hover img:nth-child(1) {
+            transform: rotate(-30deg);
+        }
+
+        .box:hover img:nth-child(4) {
+            transform: rotate(10deg);
+        }
+
+        .box:hover img:nth-child(5) {
+            transform: rotate(20deg);
+        }
+
+        .box:hover img:nth-child(6) {
+            transform: rotate(30deg);
         }
 
     </style>
@@ -104,10 +195,30 @@
         <p>Which purpose is learning JavaScript/TypeScript/HTML/CSS and make a simple demo.</p>
         <p>&copy;Powered by <a href="https://github.com/i0Ek3"><span>@i0Ek3</span>.</a></p>
 
-        <div class="div">
-            <img src="./avatar.jpg" width="300" height="240" alt="avatar">
-        </div>
         <a href="https://github.com/i0Ek3/hi.js"><b><span>Click</span></b> me to enter hi.js&trade; project!</a>
+
+        <div class="img">
+            <div class="img1">
+                <img src="./avatar.jpg" width="300" height="240" alt="avatar">
+            </div>
+            <div class="img2">
+                <img src="./avatar.jpg" width="300" height="240" alt="avatar">
+            </div>
+            <div class="img3">
+                <img src="./avatar.jpg" width="300" height="240" alt="avatar">
+            </div>
+            </ br>
+        </div>
+
+        <div class="box">
+            <img src="./avatar.jpg"/>
+            <img src="./avatar.jpg"/>
+            <img src="./avatar.jpg"/>
+            <img src="./avatar.jpg"/>
+            <img src="./avatar.jpg"/>
+            <img src="./avatar.jpg"/>
+        </div>
+        
     </center>
 </body>
 

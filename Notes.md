@@ -158,17 +158,73 @@ WIP.
 
 - 文本
   - 设置文本阴影：`text-shadow: 20px 27px 22px pink;`，四个参数分别表示为水平位移、垂直位移、模糊程度、阴影颜色
+  
 - 盒模型：CSS3 中的定义，允许开发人员**指定盒子宽度和高度的计算方式**
   - `box-sizing`
     - 外加模式：`content-box`，CSS 中的默认方式
     - 内减模式：`border-box`
+  
 - 私有前缀：用来处理兼容性问题的常见方法
+
 - 边框
   - 边框圆角
     - `border-radius: 20px 60px 100px 140px;`表示为从左上开始，顺时针赋值。如果当前角没有值，取对角的值
     - `border-radius: 60px;`表示为四个角的半径都相同
   - 边框阴影
     - `box-shadow: 15px 21px 48px -2px #666;`，其中的五个值分别表示为水平偏移、垂直偏移、模糊程度、阴影大小、阴影颜色
+  
+- 过渡`transition`：实现元素不同状态间的平滑过渡，用来制作动画效果
+  
+  - 补间动画：自动完成从起始状态到终止状态的的过渡，不用管中间的状态
+  - 帧动画：通过一帧一帧的画面按照固定顺序和速度播放，如电影胶片
+  - 属性：`transition: all 3s linear 0s;`
+    - 所有属性都应用过渡：`transition-property: all;`
+    - 过渡的持续时间：`transition-property: 1s;`
+    - 运动曲线：`transition-timing-function: linear;`，有 ease、ease-in、ease-out、ease-in-out 可选
+    - 过渡延迟：`transition-delay: 1s;`
+  
+- 2D transform：用来实现元素的**位移、旋转、变形、缩放**，甚至支持矩阵方式
+
+  - 缩放`scale`：`transform: scale(x, y);`，x 和 y 分别表示水平和垂直方向的缩放倍数，值大于 1 表示放大，否则表示缩小
+  - 位移`translate`：`transform: translate(-50%, -50%);`，正值：向右和向下；负值：向左和向上。如果只写一个值，则表示水平移动
+  - 旋转`rotate`：`transform: rotate(45deg);`，正值：顺时针；负值：逆时针
+  - 倾斜
+
+- 3D transform
+
+  - 旋转`rotateX, rotateY, rotateZ`：`transform: rotateX(360deg);`
+  - 移动`translateX, translateY, translateZ`：`transform: translateY(360px);`
+  - 透视`perspective`：透视可以将一个2D平面在转换的过程当中，呈现3D效果
+    - 作为一个属性，设置给父元素，作用于所有3D转换的子元素
+    - 作为 transform 属性的一个值，做用于元素自身。如`perspective: 500px;`
+
+  - 3D 呈现 `transform-style
+    - `transform-style: preserve-3d; `
+    - `transform-style: flat;`
+
+- 动画 `animation`
+
+  - 定义动画
+
+    - 通过 @keyframes 定义动画
+
+    ```CSS
+    /* define */
+    @keyframes ani_name{
+    		from{ 初始状态 }
+        to{ 结束状态 }
+    }
+    
+    /* invoke */
+    animation: ani_name 持续时间;
+    
+    /* step 表示分几步执行 */
+    steps(num)
+    ```
+
+    - 将动画通过百分比分割成多个节点；然后各节点中分别定义各属性
+    - 在指定元素里，通过 `animation` 属性调用动画
+
 
 ## 03 CSS in Advanced
 

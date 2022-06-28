@@ -225,6 +225,32 @@ WIP.
     - 将动画通过百分比分割成多个节点；然后各节点中分别定义各属性
     - 在指定元素里，通过 `animation` 属性调用动画
 
+### 10 Flex Layout
+
+- 概念
+
+  - 弹性盒子：指的是使用 `display:flex` 或 `display:inline-flex` 声明的**父容器**，主要是用前者
+    - `flex-direction`用来更换主轴和侧轴的方向的，包含 row, column, row-reverse, column-reverse 四个属性值
+    - `flex-wrap`控制子元素溢出时的换行处理
+    - `justify-content`控制子元素在主轴上的排列方式
+  - 子元素、弹性元素：指的是父容器里面的子元素们（父容器被声明为 flex 盒子的情况下）
+    - `justify-content: flex-start;` 设置子元素在**主轴上的对齐方式**，属性值包括 flex-start, flex-end, center, space-around, space-between
+    - `align-items`：设置子元素在**侧轴上的对齐方式**，属性值包括 flex-start, flex-end, baseline, center, stretch
+    - `flex`属性设置盒子的权重
+  - ![](http://img.smyhvae.com/20190821_2101.png)
+  - 主轴：flex 容器的主轴，默认是水平方向，从左向右
+  - 侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向，从上往下
+
+  - 
+
+- flex 布局
+
+  - `display: flex`
+  - 优势
+    - **flex 布局的子元素不会脱离文档流**，很好地遵从了“流的特性”
+    - **flex 是一种现代的布局方式，是 W3C 第一次提供真正用于布局的 CSS 规范**
+  - 缺点：不支持低版本的 IE 浏览器
+
 
 ## 03 CSS in Advanced
 

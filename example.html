@@ -14,9 +14,22 @@
 
     <style type="text/css">
         p {
+            font-size: 20px;
             font-weight: lighter;
             font-style: italic;
             color:rgb(11, 121, 210);
+        }
+
+        @font-face {font-family: 'web-font';
+            src: url('font/webfont.eot'); /* IE9*/
+            src: url('font/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('font/webfont.woff') format('woff'), /* chrome、firefox */
+            url('font/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+            url('font/webfont.svg#webfont') format('svg'); /* iOS 4.1- */
+        }
+
+        .webfont {
+            font-family: 'web-font';
         }
 
         a {
@@ -26,7 +39,7 @@
         }
 
         span {
-            color: red;
+            color: black;
         }
 
         /* id selector, mainly used for JavaScript */
@@ -39,7 +52,7 @@
 
         /* class selector, recommend in CSS */
         .size {
-            font-size: 20px;
+            font-size: 30px;
         }
 
         .color {
@@ -191,9 +204,12 @@
         <h3 class="size color" id="h3title">Welcome to hi.js&trade; project page.</h3>
         <hr width="400" />
 
-        <p>hi.js&trade; is a front-end project to learn web development.</p>
-        <p>Which purpose is learning JavaScript/TypeScript/HTML/CSS and make a simple demo.</p>
-        <p>&copy;Powered by <a href="https://github.com/i0Ek3"><span>@i0Ek3</span>.</a></p>
+        <p class="webfont">
+            hi.js&trade; is a front-end project to learn web development, which purpose is learning JavaScript/TypeScript/HTML/CSS and make a simple demo.
+        </br>
+        </br>
+            &copy;Powered by <a href="https://github.com/i0Ek3"><span>@i0Ek3</span>.</a>
+        </p>
 
         <a href="https://github.com/i0Ek3/hi.js"><b><span>Click</span></b> me to enter hi.js&trade; project!</a>
 

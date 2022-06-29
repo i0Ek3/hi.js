@@ -241,8 +241,6 @@ WIP.
   - 主轴：flex 容器的主轴，默认是水平方向，从左向右
   - 侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向，从上往下
 
-  - 
-
 - flex 布局
 
   - `display: flex`
@@ -250,6 +248,42 @@ WIP.
     - **flex 布局的子元素不会脱离文档流**，很好地遵从了“流的特性”
     - **flex 是一种现代的布局方式，是 W3C 第一次提供真正用于布局的 CSS 规范**
   - 缺点：不支持低版本的 IE 浏览器
+
+### 11 CSS Font
+
+- 字体格式：**我们需要为不同的浏览器准备不同格式的字体**，通常我们通过字体生成工具帮助我们生成各种格式的字体
+  - .ttf：.ttf 字体是 Windows 和 Mac 的最常见的字体，是一种 RAW 格式
+  - .otf：.otf 字体被认为是一种原始的字体格式，其内置在 TureType 的基础上
+  - .woff：.woff 字体是 Web 字体中最佳格式，它是一个开放的 TrueType/OpenType 的压缩版本，同时也支持元数据包的分离
+  - .eot：.eot 字体是 IE 专用字体，可以从 TrueType 创建此格式字体
+  - .svg：.svg 字体是基于 SVG 字体渲染的一种格式
+- 字体使用
+
+```CSS
+/* 1. 使用 font-face 声明字体 */
+@font-face {font-family: 'webfont';
+    src: url('webfont.eot'); /* IE9*/
+    src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('webfont.woff') format('woff'), /* chrome、firefox */
+    url('webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('webfont.svg#webfont') format('svg'); /* iOS 4.1- */
+}
+
+/* 2 定义使用 webfont 的样式 */
+.web-font{
+    font-family:"webfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;}
+
+/* 3 为文字加上对应的样式 */
+<i class="web-font">This is a test.</i>
+```
+
+- 字体图标
+  - [https://www.iconfont.cn/](https://www.iconfont.cn/)
+  - [https://icomoon.io/](https://icomoon.io/)
 
 
 ## 03 CSS in Advanced

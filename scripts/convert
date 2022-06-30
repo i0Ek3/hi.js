@@ -1,0 +1,16 @@
+#!/bin/bash
+
+Usage() {
+    echo ""
+    echo "Invalid arguments!"
+    echo "Usage: $0 [source].scss [target].sass"
+    echo "For example: $0 a.scss a.sass"
+    echo ""
+}
+
+if [[ $# != 2 ]]
+then
+    Usage
+else
+    sass-convert $1 $2
+fi

@@ -285,6 +285,26 @@ WIP.
   - [https://www.iconfont.cn/](https://www.iconfont.cn/)
   - [https://icomoon.io/](https://icomoon.io/)
 
+### 12 [Sass](https://sass-lang.com/)
+
+- Syntactically Awesome Stylesheets, Sass
+  - 介绍
+    - Sass 是这个世界上最成熟、稳定和强大的专业级 CSS 扩展语言
+    - Sass 专注的是怎样创建优雅的样式表，而不是内容
+    - Less/Sass 是语法、Compass 是框架、CSS 是目标
+  - 安装 Sass/Compass
+    - `./scripts/setup.sh`
+  - 语法
+    - 后缀：一个项目中可以混合使用两种语法，但是一个文件中不能同时使用两种语法
+      - .sass：对空格敏感，不使用大括号和分号，所以每个属性之间是通过换行来分隔
+      - .scss：是 CSS 语法的超集，可以使用大括号和分号
+    - 变量：Sass 是通过`$`符号来声明变量
+      - 通常我们会新建一个文件`_variables.scss`，这个文件专门用来存放变量，然后在其他文件中引入`_variables.scss`即可
+      - 引入：`@import "variables";`
+    - 注释：
+      - 单行注释 //
+      - 块级注释 /* */
+
 
 ## 03 CSS in Advanced
 

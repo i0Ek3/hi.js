@@ -291,7 +291,7 @@ WIP.
   - 介绍
     - Sass 是这个世界上最成熟、稳定和强大的专业级 CSS 扩展语言
     - Sass 专注的是怎样创建优雅的样式表，而不是内容
-    - Less/Sass 是语法、Compass 是框架、CSS 是目标
+    - Less/Sass 是语法，Compass 是框架，CSS 是目标
   - 安装 Sass/Compass
     - `./scripts/setup.sh`
   - 语法

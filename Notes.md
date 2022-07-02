@@ -6,25 +6,475 @@ All notes in this article are based on [this tutorial](https://web.qianguyihao.c
 
 ### Basic
 
-WIP.
+- 标签
+
+  - 排版标签
+    - 标题标签
+      - `<h1>`-`<h6>`
+        - 拥有 align 属性
+    - html 注释
+      - `<!-- this is a note for html -->`
+    - 段落标签
+      - `<p>xxxx</p>`
+        - 拥有 align 属性
+    - 水平线标签
+      - `<hr />`
+        - `align="属性值"`：设定线条置放位置。属性值可选择：left right center
+        - `size="2"`：设定线条粗细。以像素为单位，内定为 2
+        - `width="500"`或`width="70%"`：设定线条长度。可以是绝对值（单位是像素）或相对值。如果设置为相对值的话，内定为100%
+        - `color="#0000FF"`：设置线条颜色
+        - `noshade`：不要阴影，即设定线条为平面显示，若没有这个属性则表明线条具阴影或立体
+    - 换行标签
+      - `<br />`
+    - `<div>`标签
+      - div 的语义是 division，即分割
+      - 可以把标签中的内容分割为独立的区块，必须单独占据一行
+      - `align="属性值"`：设置块儿的位置。属性值可选择：left、right、 center
+    - `<span>`标签
+      - span 的语义就是 span，即范围、跨度
+      - 和 div 的作用一致，但不换行
+    - 内容居中标签
+      - `<center>`
+    - 预定义标签
+      - `<pre>`
+  - 字体标签
+    - 特殊字符
+      - `&nbsp;`：空格 （non-breaking spacing，不断打空格）
+      - `&lt;`：小于号（less than）
+      - `&gt;`：大于号（greater than）
+      - `&amp;`：符号`&`
+      - `&quot;`：双引号
+      - `&apos;`：单引号
+      - `&plusmn;`：正负号`±`
+      - `&sup2;`：平方`x²`
+        - `&sup3`：立方
+      - `&yen;`：人民币`￥`
+      - `&reg;`：注册商标`®`
+      - `&copy;`：版权`©`
+      - `&trade;`：商标`™`
+      - `&deg;`：摄氏度`°`
+      - `&#32464`：文字`绐`，其是汉字`绐`的unicode编码
+    - 下划线、中划线、斜体
+      - `<u>`：下划线标记
+      - `<s>`或`<del>`：中划线标记（删除线）
+      - `<i>`或`<em>`：斜体标记
+  - 图片标签`<img src="./hi.jpg" />`
+    - 能够插入的图片类型是：jpg(jpeg)、gif、png、bmp 等
+    - 不能往网页中插入的图片格式是：psd、ai 等
+    - 属性
+      - src：指定图片路径
+      - width：图像的宽度
+      - height：图像的高度
+      - alt：当图片不可用（无法显示）的时候，代替图片显示的内容
+      - title：**提示性文本**，鼠标悬停时出现的文本
+      - align：**图片和周围文字的相对位置**
+        - bottom（默认）、center、top、left、right
+  - 列表标签
+    - `<ul>` 无序列表
+      - ul 里的每一项都是 li
+      - li 不能单独存在，必须包裹在 ul 里面
+      - ul 的儿子，只能是 li。但是 li 是一个容器级标签，**li 里面什么都能放，甚至可以再放一个 ul**
+      - type 属性
+        - `disc`(实心原点，默认)
+        - `square`(实心方点)
+        - `circle`(空心圆)
+    - `<ol>` 有序列表
+      - ol 里的每一项都是 li
+      - type 属性
+        - 1(阿拉伯数字，默认)
+        - a
+        - A
+        - i
+        - I
+    - `<dl>` 定义列表
+      - dl 的子元素只能是 dt 和 dd，dd 是用来描述 dt 的
+        - `<dt>`：definition title 列表的标题，这个标签是必须的
+        - `<dd>`：definition description 列表的列表项，如果不需要它，可以不加
+  - 表格标签`<table>`
+    - 一个表格`<table>`是由每行都是`<tr>`组成的，每行是由每个单元格`<td>`组成的。即一个表格是由行组成的（行是由列组成的），而不是由行和列组成的
+      - `<tr>`：行
+        - 属性
+          - dir：公有属性，设置这一行单元格内容的排列方式。可以取值：
+            - `ltr`：从左到右（left to right，默认）
+            - `rtl`：从右到左（right to left）
+          - `bgcolor`：设置这一行的单元格的背景色。 注：没有 background 属性，即：无法设置这一行的背景图片，如果非要设置，可以用 css 实现
+          - `height`：一行的高度
+          - `align="center"`：一行的内容水平居中显示，取值：left、center、right
+          - `valign="center"`：一行的内容垂直居中，取值：top、middle、bottom
+      - `<td>`/`<th>`：单元格/加粗单元格
+        - 属性
+          - `align`：内容的横向对齐方式。属性值可以填：left right center。如果想让每个单元格的内容都居中，这个属性太麻烦了，以后用 css 来解决
+          - `valign`：内容的纵向对齐方式。属性值可以填：top middle bottom
+          - `width`：绝对值或者相对值(%)
+          - `height`：单元格的高度
+          - `bgcolor`：设置这个单元格的背景色
+          - `background`：设置这个单元格的背景图片
+        - 单元格合并
+          - `colspan`：横向合并。例如`colspan="2"`表示当前单元格在水平方向上要占据两个单元格的位置
+          - `rowspan`：纵向合并。例如`rowspan="2"`表示当前单元格在垂直方向上要占据两个单元格的位置
+        - `<caption>`标签：表格的标题
+        - `<thead>`/`<tbody>`/`<tfoot>`标签
+    - 属性
+      - `border`：边框，像素为单位
+      - `style="border-collapse:collapse;"`：单元格的线和表格的边框线合并（表格的两边框合并为一条）
+      - `width`：宽度，像素为单位
+      - `height`：高度，像素为单位
+      - `bordercolor`：表格的边框颜色
+      - `align`：**表格**的水平对齐方式。属性值可以填：left right center。 注意：这里不是设置表格里内容的对齐方式，如果想设置内容的对齐方式，要对单元格标签`<td>`进行设置）
+      - `cellpadding`：单元格内容到边的距离，像素为单位。默认情况下，文字是紧挨着左边那条线的，即默认情况下的值为0。 注意不是单元格内容到四条边的距离哈，而是到一条边的距离，默认是与左边那条线的距离。如果设置属性`dir="rtl"`，那就指的是内容到右边那条线的距离
+      - `cellspacing`：单元格和单元格之间的距离（外边距），像素为单位，默认情况下的值为0
+      - `bgcolor="#99cc66"`：表格的背景颜色
+      - `background="路径src/..."`：背景图片，背景图片的优先级大于背景颜色
+      - `bordercolorlight`：表格的上、左边框，以及单元格的右、下边框的颜色
+      - `bordercolordark`：表格的右、下边框，以及单元格的上、左的边框的颜色 这两个属性的目的是为了设置 3D 的效果
+      - `dir`：公有属性，单元格内容的排列方式(direction)。 可以取值 `ltr`：从左到右（left to right，默认），`rtl`：从右到左（right to left）。既然说`dir`是共有属性，如果把这个属性放在任意标签中，那表明这个标签的位置可能会从右开始排列
+  - 框架标签及内嵌框架`<iframe>`
+  - `<iframe>` 是 `<body>` 的子标记
+    - 属性
+      - `src="subframe/the_second.html"`：内嵌的那个页面
+      - `width=800`：宽度
+      - `height=“150`：高度
+      - `scrolling="no"`：是否需要滚动条，默认值是 true
+      - `name="mainFrame"`：窗口名称，公有属性
+  - 表单标签`<form>`
+    - 用于与服务器的交互
+    - 表单和表格嵌套时，是在`<form>`标记中套`<table>`标记
+    - 属性
+      - `name`：表单的名称，用于 JS 来操作或控制表单时使用
+      - `id`：表单的名称，用于 JS 来操作或控制表单时使用
+      - `action`：指定表单数据的处理程序，一般是 PHP，如：action=“login.php”
+      - `method`：表单数据的提交方式，一般取值：get(默认)和 post
+    - 输入标签 `<input>`
+    - 下拉列表标签 `<select>`
+    - `<textarea>`
+    - `label`
+  - 多媒体标签
+    - `<bgsound>`：播放背景音乐
+    - `<embed>`：播放多媒体文件
+      - 主要应用 Netscape 浏览器，它不是 W3C 规范
+    - `<object>`：播放多媒体文件
+      - 主要应用 IE 浏览器，它是 W3C 规范
+  - 滚动字幕标签`<marquee>`
+    - 属性
+      - `direction="right"`：移动的目标方向。属性值可以是：`left`（从右向左移动，默认值）、`right`（从左向右移动）、`up`（从下向上移动）、`down`（从上向下移动）
+      - `behavior="slide"`：行为方式。属性值可以是：`slide`（只移动一次）、`scroll`（循环移动，默认值）、`alternate`（循环移动）、。 `alternate`和`scroll`属性值都是循环移动，区别在于：假设在`direction="right"`的情况下，`behavior="scroll"`表示从左到右、从左到右、从左到右···`behavior="alternate"`表示从左到右、从右到左、从左到右···
+      - `scrollamount="30"`：移动的速度
+      - `loop="3"`: 循环多少圈。负值表示无限循环
+      - `scrolldelay="1000"`：移动一次休息多长时间。单位是毫秒
+
+- 超链接
+
+  - 分类
+
+    - 外部链接：链接到外部文件
+      - `<a href="b.html">点击进入 b 文件</a>`
+    - 锚链接：给超链接起一个名字，作用是**在本页面或者其他页面的的不同位置进行跳转**
+
+    ```css
+    <body>
+    	<a name="a">Top</a>
+    	<pre>
+    
+    	</pre>
+    	<a href="#a">Back To Top</a>
+    </body>
+    ```
+
+    - 邮件链接
+    - `<a href="mailto:hi.js@gmail.com">点击进入邮箱</a>`
+
+  - 属性
+
+    - `href`：目标 URL
+    - `title`：悬停文本
+    - `name`：主要用于设置一个锚点的名称
+    - target：告诉浏览器用什么方式来打开目标页面
+      - `_self`：在同一个网页中显示（默认值）
+      - `_blank`：**在新的窗口中打开**
+      - `_parent`：在父窗口中显示
+      - `_top`：在顶级窗口中显示
 
 ## 02 CSS
 
 ### 01 Preferences
 
-WIP.
+- font
+
+```CSS
+font: 50 14px/24px "SimSun"; /*加粗 字号/行高/ 字体*/
+font-size: 50px; 		         /*字体大小*/
+line-height: 30px;           /*行高*/
+font-family: "Microsoft YaHei", "SimSun"; /*字体类型：如果没有幼圆就显示黑体，没有黑体就显示默认*/
+font-style: italic ;		  /*italic表示斜体，normal表示不倾斜*/
+font-weight: bold;	      /*粗体*/
+font-variant: small-caps; /*小写变大写*/
+vertical-align: middle;   /*单行文本垂直居中*/
+```
+
+- text
+
+![](http://img.smyhvae.com/2015-10-03-css-18.png)
+
+- list
+
+![](http://img.smyhvae.com/2015-10-03-css-26.png)
+
+- overflow
+  - `visible`：默认值。多余的内容不剪切也不添加滚动条，会全部显示出来
+  - `hidden`：不显示超过对象尺寸的内容
+  - `auto`：如果内容不超出，则不显示滚动条；如果内容超出，则显示滚动条
+  - `scroll`：Windows 平台下，无论内容是否超出，总是显示滚动条。Mac 平台下，和 `auto` 属性相同
+- cursor
+  - `auto`：默认值。浏览器根据当前情况自动确定鼠标光标类型
+  - `pointer`：IE6.0，竖起一只手指的手形光标。就像通常用户将光标移到超链接上时那样
+  - `hand`和`pointer`的作用一样：竖起一只手指的手形光标。就像通常用户将光标移到超链接上时那样
+- 滤镜
+  - `<img src="x.jpg" style="filter:gray()">`
+- background：`background: red url(1.jpg) no-repeat 100px 100px fixed;`
+  - `background-color: #ff99ff;` 设置元素的背景颜色，值还可以是 RGBA 或 HSLA
+  - `background-image:url(images/2.gif);` 将图像设置为背景
+  - `background-repeat: no-repeat;` 设置背景图片是否重复及如何重复，默认平铺满（重要）
+    - `no-repeat`不要平铺
+    - `repeat-x`横向平铺
+    - `repeat-y`纵向平铺
+  - `background-position:center top;` 设置背景图片在当前容器中的位置
+  - `background-attachment:scroll;` 设置背景图片是否跟着滚动条一起移动。属性值可以是`scroll`、`fixed`
+  - `background-origin` 控制背景从什么地方开始显示
+  - `background-clip` 背景裁切
+  - `background-size` 调整尺寸
+  - `background-image` 渐变
+    - 线性渐变
+    - 径向渐变
+  - `clip-path` 裁剪元素的部分区域
+  - 多重背景
 
 ### 02 Selector
 
-WIP.
+- 样式表（Cascading Style Sheet）：给 HTML 页面标签添加各种样式，**定义网页的显示效果**
+
+  - 行内样式表：在某个特定的标签里采用 style 属性，范围只针对此标签
+
+    - `<p style="color:white;background-color:red">hi</p>`
+
+  - 内嵌样式表：在页面的 head 里采用`<style>`标签，范围针对此页面
+
+    - ```css
+      <style type="text/css">
+      	p {
+        
+      	}
+      </style>
+      ```
+
+  - 外部样式表：引入外部样式表 css 文件的方式
+
+    - <link> 标签引入：`<link rel = "stylesheet" type = "text/css" href = "a.css"></link>`
+    - import 引入：`@import url(a.css);`
+
+- 选择器：指定 CSS 要作用的标签，即选择哪个容器
+
+  - 基本选择器
+
+    - 标签选择器：针对**一类**标签
+
+      - 所有的标签，都可以是选择器
+      - 选择器的名字就是 html 页面上的标签，如下面的 p 标签
+
+      ```css
+      <style type="text/css">
+      	p {
+        	font-size: 50px;
+      	}
+      </style>
+      
+      <body>
+      	<p>hi</p>
+      </body>
+      ```
+
+    - 类选择器：针对**你想要的所有**标签使用，规定用圆点`.`来定义
+
+      - 类选择器可以被多种标签使用
+      - 同一个标签可以使用多个类选择器，用**空格**隔开即可
+      - 尽可能的用 class，除非极特殊的情况可以用 id
+
+      ```css
+      <h3 class="cs">class selector</h3>
+      ```
+
+    - ID 选择器：针对某**一个**特定的标签使用，规定用`#`来定义
+
+      - ID 只能有字母、数字、下划线
+      - 必须以字母开头
+      - 不能和标签同名
+      - html 页面，不能出现相同的 id
+
+    ```css
+    <style type="text/css">
+    	#myp {
+      	font-size: 50px;
+    	}
+    </style>
+    
+    <body>
+    	<p id="myp">hi</p>
+    </body>
+    ```
+
+    - 通用选择器：针对所有的标签都适用（不建议使用）
+
+      - 匹配所有标签，可以用来清除初始效果
+
+      ```css
+      * {
+          margin-left: 0px;
+          margin-top: 0px;
+      }
+      ```
+
+  - 扩展选择器
+
+    - 后代选择器：用空格隔开
+
+      - 对于`E F`这种格式，表示**所有属于 E 后代的 F 元素**，空格表示后代
+
+      ```css
+      /* 表示 类选择器 div 下的 p 标签会变成红色 */
+      <style type="text/css">
+          .div1 p {
+              color: red;
+          }
+      </style>
+      ```
+
+    - 交集选择器：选择器之间紧密相连
+
+      - 以标签名开头，比如`div.haha`
+      - 如果后一个选择器是类选择器，则写为`div.special`；如果后一个选择器 id 选择器，则写为`div#special`
+
+      ![](http://img.smyhvae.com/20170711_1851.png)
+
+    - 并集选择器：用逗号隔开
+
+      - 三种基本选择器都可以放进来
+
+      ```css
+      p,
+      h1,
+      #myp,
+      .one {
+          color: red;
+      }
+      ```
+
+  - CSS3 选择器
+
+    - 子代选择器
+
+    ```css
+    div > p {
+        color: red;
+    }
+    ```
+
+    - 序选择器
+
+    ```css
+    ul li:last-child {
+        color: blue;
+    }
+    ```
+
+    - 下一个兄弟选择器
+
+    ```css
+    <style type="text/css">
+        h3 + p {
+            color: red;
+        }
+    </style>
+    ```
 
 ### 03 Pseudo-Class
 
-WIP.
+- 伪类：同一个标签，根据其**不同的种状态，有不同的样式**，用 `:` 表示
+
+  - 静态伪类：只能用于**超链接**的样式
+    - `:link` 超链接点击之前
+    - `:visited` 链接被访问过之后
+  - 动态伪类：针对**所有标签**都适用的样式
+    - `:hover` “悬停”：鼠标放到标签上的时候
+    - `:active` “激活”：鼠标点击标签，但是不松手时
+    - `:focus` 是某个标签获得焦点时的样式（比如某个输入框获得焦点）
+
+- 超链接 a 标签
+
+  - 包含四种伪类（重点），这四种状态**必须按照固定的顺序写**
+
+    - `:link` “链接”：超链接点击之前
+    - `:visited` “访问过的”：链接被访问过之后
+    - `:hover` “悬停”：鼠标放到标签上的时候
+    - `:active` “激活”：鼠标点击标签，但是不松手时
+
+    ```css
+    <style type="text/css">
+    	/*让超链接点击之前是红色*/
+    	a:link{
+    		color:red;
+    	}
+    
+    	/*让超链接点击之后是绿色*/
+    	a:visited{
+    		color:orange;
+    	}
+    
+    	/*鼠标悬停，放到标签上的时候*/
+    	a:hover{
+    		color:green;
+    	}
+    
+    	/*鼠标点击链接，但是不松手的时候*/
+    	a:active{
+    		color:black;
+    	}
+    </style>
+    ```
+
+  - a{} 和 link{} 的区别
+
+    - `a{}`定义的样式针对所有的超链接(包括锚点)
+    - `a:link{}`定义的样式针对所有写了href属性的超链接(不包括锚点)
 
 ### 04 Inheritance and Cascading
 
-WIP.
+- 继承性
+
+  - 有一些属性，当给自己设置的时候，自己的后代都继承上了，这个就是**继承性**
+  - 继承性是从自己开始，直到最小的元素
+  - 关于文字样式的属性，都具有继承性。包括 color、 text-开头的、line-开头的、font-开头的属性
+  - 关于盒子、定位、布局的属性，都不能继承
+  - 如果不能直接选中某个元素，通过继承性影响的话，那么权重是 0
+
+- 层叠性（重要）：**就是 CSS 处理冲突的能力**
+
+  - 计算权重
+    - 当多个选择器，选择上了某个元素的时候，要按照如下顺序统计权重
+      - ID 选择器
+      - 类选择器、属性选择器、伪类选择器
+      - 标签选择器、伪元素选择器
+    - 选择器排序的优先级为：ID 选择器 > 类选择器 > 标签选择器
+    - 权重相同，就近原则
+    - 总结
+      - 选择上了，数权重(id 的数量，类的数量，标签的数量)。如果权重一样，谁写在后面听谁的
+      - 没有选择上，通过继承影响的，就近原则，谁描述的近听谁的。如果描述的一样近，比如选择器权重，如果权重再一样重，谁写在后面听谁的
+
+  ![](http://img.smyhvae.com/20170727_2050.png)
+
+  - 权重问题
+    - !important 标记优先级最高
+      - !important 提升的是一个属性，而不是一个选择器
+      - !important 无法提升继承的权重，该是 0 还是 0
+      - !important 不影响就近原则
 
 ### 05 Box model
 

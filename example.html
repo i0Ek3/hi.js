@@ -226,7 +226,7 @@
             </ br>
         </div>
 
-        <div class="box">
+        <div class="box" draggable="true">
             <img src="./avatar.jpg"/>
             <img src="./avatar.jpg"/>
             <img src="./avatar.jpg"/>
@@ -236,6 +236,26 @@
         </div>
         
     </center>
+    <script>
+        var box = document.querySelector('.box');
+  
+        box.ondragstart = function () {
+            console.log('Drag starting...');
+        }
+    
+        box.ondragleave = function () {
+            console.log('Drag leaving..');
+        }
+    
+        box.ondragend = function () {
+            console.log('Darg done!');
+            console.log("---------------");
+        }
+    
+        box.ondrag = function () {
+            console.log('Drag');
+        }
+    </script>
 </body>
 
 </html>

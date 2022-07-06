@@ -4,10 +4,8 @@ All notes in this article are based on [this tutorial](https://web.qianguyihao.c
 
 ## 01 HTML
 
-### Basic
-
 - 标签
-
+  
   - 排版标签
     - 标题标签
       - `<h1>`-`<h6>`
@@ -163,28 +161,28 @@ All notes in this article are based on [this tutorial](https://web.qianguyihao.c
       - `scrolldelay="1000"`：移动一次休息多长时间。单位是毫秒
 
 - 超链接
-
+  
   - 分类
-
+    
     - 外部链接：链接到外部文件
       - `<a href="b.html">点击进入 b 文件</a>`
     - 锚链接：给超链接起一个名字，作用是**在本页面或者其他页面的的不同位置进行跳转**
-
+    
     ```css
     <body>
-    	<a name="a">Top</a>
-    	<pre>
+        <a name="a">Top</a>
+        <pre>
     
-    	</pre>
-    	<a href="#a">Back To Top</a>
+        </pre>
+        <a href="#a">Back To Top</a>
     </body>
     ```
-
+    
     - 邮件链接
     - `<a href="mailto:hi.js@gmail.com">点击进入邮箱</a>`
-
+  
   - 属性
-
+    
     - `href`：目标 URL
     - `title`：悬停文本
     - `name`：主要用于设置一个锚点的名称
@@ -194,6 +192,226 @@ All notes in this article are based on [this tutorial](https://web.qianguyihao.c
       - `_parent`：在父窗口中显示
       - `_top`：在顶级窗口中显示
 
+- HTML5
+  
+  - 新一代开发 **Web 富客户端**应用程序整体**解决方案**。包括：HTML5，CSS3，Javascript API 在内的一套**技术组合**
+    
+    - **富客户端**：具有很强的**交互性**和体验的客户端程序。比如说，浏览博客，是比较简单的客户端；一个在线听歌的网站、即时聊天网站就是富客户端。
+  
+  - 应用场景
+    
+    - 极具表现力的网页：内容简约而不简单
+    
+    - 网页应用程
+      
+      - 代替 PC 端的软件：iCloud、百度脑图
+      
+      - APP 端的网页：淘宝、京东、美团等
+      
+      - 微信端：公众号、小程序等
+    
+    - 混合式本地应用
+    
+    - 简单的游戏
+  
+  - 新增内容
+    
+    - 语义化标签：可以直接写 `<nav>` 而不是 `<div class="nav">`
+      
+      - `<section>` 表示区块
+      
+      - `<article>` 表示文章。如文章、评论、帖子、博客
+      
+      - `<header>` 表示页眉
+      
+      - `<footer>` 表示页脚
+      
+      - `<nav>` 表示导航
+      
+      - `<aside>` 表示侧边栏。如文章的侧栏
+      
+      - `<figure>` 表示媒介内容分组。
+      
+      - `<mark>` 表示标记 (用得少)
+      
+      - `<progress>` 表示进度 (用得少)
+      
+      - `<time>` 表示日期
+    
+    - 表单
+      
+      - `email` 只能输入 email 格式，自动带有验证功能
+      
+      - `tel` 手机号码
+      
+      - `url` 只能输入 url 格式
+      
+      - `number` 只能输入数字
+      
+      - `search` 搜索框
+      
+      - `range` 滑动条
+      
+      - `color` 拾色器
+      
+      - `time` 时间
+      
+      - `date` 日期
+      
+      - `datetime` 时间日期
+      
+      - `month` 月份
+      
+      - `week` 星期
+    
+    - 多媒体
+      
+      - 音频 <audio>
+      
+      - 视频 <vedio>
+    
+    - DOM 操作
+      
+      - 获取元素
+        
+        - document.querySelector("selector") 通过 CSS 选择器获取符合条件的第一个元素
+        
+        - document.querySelectorAll("selector") 通过 CSS 选择器获取符合条件的所有元素，以类数组形式存在
+      
+      - 类名操作
+        
+        - Node.classList.add("class") 添加 class
+        
+        - Node.classList.remove("class") 移除 class
+        
+        - Node.classList.toggle("class") 切换 class，有则移除，无则添加
+        
+        - Node.classList.contains("class") 检测是否存在 class
+      
+      - 自定义属性
+    
+    - 拖拽 `draggable="true"`
+      
+      - 拖拽元素的监听事件
+        
+        - `ondragstart`当拖拽开始时调用
+        
+        - `ondragleave` 当**鼠标离开拖拽元素时**调用
+        
+        - `ondragend` 当拖拽结束时调用
+        
+        - `ondrag` 整个拖拽过程都会调用
+      
+      - 目标元素的监听事件
+        
+        - `ondragenter` 当拖拽元素进入时调用
+        
+        - `ondragover` 当拖拽元素停留在目标元素上时，就会连续一直触发（不管拖拽元素此时是移动还是不动的状态）
+        
+        - `ondrop` 当在目标元素上松开鼠标时调用
+        
+        - `ondragleave` 当鼠标离开目标元素时调用
+      
+      - 如果想让拖拽元素在目标元素里做点事情，就必须要在 `ondragover()` 里加`event.preventDefault()`这一行代码
+    
+    - 历史
+      
+      - 在 HTML5 中可以通过 `window.history` 操作访问历史状态，让一个页面可以有多个历史状态
+    
+    - 地理位置
+      
+      - 在 HTML 规范中，增加了获取用户地理信息的 API，这样使得我们可以基于用户位置开发互联网应用，即**基于位置服务 LBS** (Location Base Service)
+      
+      - 获取地理信息的方式
+        
+        - IP 地址
+        
+        - 三维坐标
+          
+          - GPS
+          
+          - Wi-Fi 定位：仅限于室内
+          
+          - 手机信号定位：通过运营商的信号塔定位)
+        
+        ![](http://img.smyhvae.com/20180224_2110.png)
+    
+    - 全屏
+      
+      - requestFullscreen() 让元素开启全屏显示
+      
+      - cancleFullscreen() 让元素关闭全屏显示
+      
+      - document.fullScreen 检测当前是否处于全屏状态
+      
+      - 全屏的伪类
+        
+        - :full-screen .box {}
+        
+        - :-webkit-full-screen {}
+        
+        - :moz-full-screen {}
+    
+    - Web 存储
+      
+      - 存储方式
+        
+        - **`window.sessionStorage` 会话存储**
+          
+          - 保存在内存中
+          
+          - **生命周期**为关闭浏览器窗口，当窗口关闭时数据销毁
+          
+          - 在同一个窗口下数据可以共享
+        
+        - **`window.localStorage` 本地存储**
+          
+          - 有可能保存在浏览器内存里，有可能在硬盘里
+          
+          - 永久生效，除非手动删除（比如清理垃圾的时候）
+          
+          - 可以多窗口共享
+      
+      - 存储的特性
+        
+        - 设置、读取方便
+        
+        - 容量较大，sessionStorage 约 5M、localStorage 约 20M
+        
+        - 只能存储字符串，可以将对象 JSON.stringify() 编码后存储
+    
+    - 网络状态：通过 `window.onLine` 来检测用户当前的网络状况
+    
+    - 应用缓存
+      
+      - HTML5 中我们可以轻松的构建一个离线（无网络状态）应用，只需要创建一个 `cache manifest` 缓存清单文件
+      
+      - 优势
+        
+        - 可配置需要缓存的资源
+        
+        - 网络无连接应用仍可用
+        
+        - 本地读取缓存资源，提升访问速度，增强用户体验
+        
+        - 减少请求，缓解服务器负担
+      
+      - 缓存清单文件
+        
+        - 缓存清单文件中列出了浏览器应缓存，以供离线访问的资源。推荐使用 `.appcache`作为后缀名，另外还要添加 MIME 类型
+        
+        - 缓存清单文件里的内容如何写？
+          
+          - 顶行写 CACHE MANIFEST
+          
+          - CACHE: 换行 指定我们需要缓存的静态资源，如 .css、image、js 等
+          
+          - NETWORK: 换行 指定需要在线访问的资源，可使用通配符（也就是：不需要缓存的、必须在网络下面才能访问的资源）
+          
+          - FALLBACK: 换行 当被缓存的文件找不到时的备用资源（当访问不到某个资源时，自动由另外一个资源替换）
+          
+          ![](http://img.smyhvae.com/20180224_2240.png)
+
 ## 02 CSS
 
 ### 01 Preferences
@@ -202,11 +420,11 @@ All notes in this article are based on [this tutorial](https://web.qianguyihao.c
 
 ```CSS
 font: 50 14px/24px "SimSun"; /*加粗 字号/行高/ 字体*/
-font-size: 50px; 		         /*字体大小*/
+font-size: 50px;                  /*字体大小*/
 line-height: 30px;           /*行高*/
 font-family: "Microsoft YaHei", "SimSun"; /*字体类型：如果没有幼圆就显示黑体，没有黑体就显示默认*/
-font-style: italic ;		  /*italic表示斜体，normal表示不倾斜*/
-font-weight: bold;	      /*粗体*/
+font-style: italic ;          /*italic表示斜体，normal表示不倾斜*/
+font-weight: bold;          /*粗体*/
 font-variant: small-caps; /*小写变大写*/
 vertical-align: middle;   /*单行文本垂直居中*/
 ```
@@ -251,93 +469,93 @@ vertical-align: middle;   /*单行文本垂直居中*/
 ### 02 Selector
 
 - 样式表（Cascading Style Sheet）：给 HTML 页面标签添加各种样式，**定义网页的显示效果**
-
+  
   - 行内样式表：在某个特定的标签里采用 style 属性，范围只针对此标签
-
+    
     - `<p style="color:white;background-color:red">hi</p>`
-
+  
   - 内嵌样式表：在页面的 head 里采用`<style>`标签，范围针对此页面
-
+    
     - ```css
       <style type="text/css">
-      	p {
-        
-      	}
+          p {
+      
+          }
       </style>
       ```
-
+  
   - 外部样式表：引入外部样式表 css 文件的方式
-
+    
     - <link> 标签引入：`<link rel = "stylesheet" type = "text/css" href = "a.css"></link>`
     - import 引入：`@import url(a.css);`
 
 - 选择器：指定 CSS 要作用的标签，即选择哪个容器
-
+  
   - 基本选择器
-
+    
     - 标签选择器：针对**一类**标签
-
+      
       - 所有的标签，都可以是选择器
       - 选择器的名字就是 html 页面上的标签，如下面的 p 标签
-
+      
       ```css
       <style type="text/css">
-      	p {
-        	font-size: 50px;
-      	}
+          p {
+            font-size: 50px;
+          }
       </style>
       
       <body>
-      	<p>hi</p>
+          <p>hi</p>
       </body>
       ```
-
+    
     - 类选择器：针对**你想要的所有**标签使用，规定用圆点`.`来定义
-
+      
       - 类选择器可以被多种标签使用
       - 同一个标签可以使用多个类选择器，用**空格**隔开即可
       - 尽可能的用 class，除非极特殊的情况可以用 id
-
+      
       ```css
       <h3 class="cs">class selector</h3>
       ```
-
+    
     - ID 选择器：针对某**一个**特定的标签使用，规定用`#`来定义
-
+      
       - ID 只能有字母、数字、下划线
       - 必须以字母开头
       - 不能和标签同名
       - html 页面，不能出现相同的 id
-
+    
     ```css
     <style type="text/css">
-    	#myp {
-      	font-size: 50px;
-    	}
+        #myp {
+          font-size: 50px;
+        }
     </style>
     
     <body>
-    	<p id="myp">hi</p>
+        <p id="myp">hi</p>
     </body>
     ```
-
+    
     - 通用选择器：针对所有的标签都适用（不建议使用）
-
+      
       - 匹配所有标签，可以用来清除初始效果
-
+      
       ```css
       * {
           margin-left: 0px;
           margin-top: 0px;
       }
       ```
-
+  
   - 扩展选择器
-
+    
     - 后代选择器：用空格隔开
-
+      
       - 对于`E F`这种格式，表示**所有属于 E 后代的 F 元素**，空格表示后代
-
+      
       ```css
       /* 表示 类选择器 div 下的 p 标签会变成红色 */
       <style type="text/css">
@@ -346,18 +564,18 @@ vertical-align: middle;   /*单行文本垂直居中*/
           }
       </style>
       ```
-
+    
     - 交集选择器：选择器之间紧密相连
-
+      
       - 以标签名开头，比如`div.haha`
       - 如果后一个选择器是类选择器，则写为`div.special`；如果后一个选择器 id 选择器，则写为`div#special`
-
+      
       ![](http://img.smyhvae.com/20170711_1851.png)
-
+    
     - 并集选择器：用逗号隔开
-
+      
       - 三种基本选择器都可以放进来
-
+      
       ```css
       p,
       h1,
@@ -366,27 +584,27 @@ vertical-align: middle;   /*单行文本垂直居中*/
           color: red;
       }
       ```
-
+  
   - CSS3 选择器
-
+    
     - 子代选择器
-
+    
     ```css
     div > p {
         color: red;
     }
     ```
-
+    
     - 序选择器
-
+    
     ```css
     ul li:last-child {
         color: blue;
     }
     ```
-
+    
     - 下一个兄弟选择器
-
+    
     ```css
     <style type="text/css">
         h3 + p {
@@ -398,7 +616,7 @@ vertical-align: middle;   /*单行文本垂直居中*/
 ### 03 Pseudo-Class
 
 - 伪类：同一个标签，根据其**不同的种状态，有不同的样式**，用 `:` 表示
-
+  
   - 静态伪类：只能用于**超链接**的样式
     - `:link` 超链接点击之前
     - `:visited` 链接被访问过之后
@@ -408,47 +626,47 @@ vertical-align: middle;   /*单行文本垂直居中*/
     - `:focus` 是某个标签获得焦点时的样式（比如某个输入框获得焦点）
 
 - 超链接 a 标签
-
+  
   - 包含四种伪类（重点），这四种状态**必须按照固定的顺序写**
-
+    
     - `:link` “链接”：超链接点击之前
     - `:visited` “访问过的”：链接被访问过之后
     - `:hover` “悬停”：鼠标放到标签上的时候
     - `:active` “激活”：鼠标点击标签，但是不松手时
-
+    
     ```css
     <style type="text/css">
-    	/*让超链接点击之前是红色*/
-    	a:link{
-    		color:red;
-    	}
+        /*让超链接点击之前是红色*/
+        a:link{
+            color:red;
+        }
     
-    	/*让超链接点击之后是绿色*/
-    	a:visited{
-    		color:orange;
-    	}
+        /*让超链接点击之后是绿色*/
+        a:visited{
+            color:orange;
+        }
     
-    	/*鼠标悬停，放到标签上的时候*/
-    	a:hover{
-    		color:green;
-    	}
+        /*鼠标悬停，放到标签上的时候*/
+        a:hover{
+            color:green;
+        }
     
-    	/*鼠标点击链接，但是不松手的时候*/
-    	a:active{
-    		color:black;
-    	}
+        /*鼠标点击链接，但是不松手的时候*/
+        a:active{
+            color:black;
+        }
     </style>
     ```
-
+  
   - a{} 和 link{} 的区别
-
+    
     - `a{}`定义的样式针对所有的超链接(包括锚点)
     - `a:link{}`定义的样式针对所有写了href属性的超链接(不包括锚点)
 
 ### 04 Inheritance and Cascading
 
 - 继承性
-
+  
   - 有一些属性，当给自己设置的时候，自己的后代都继承上了，这个就是**继承性**
   - 继承性是从自己开始，直到最小的元素
   - 关于文字样式的属性，都具有继承性。包括 color、 text-开头的、line-开头的、font-开头的属性
@@ -456,7 +674,7 @@ vertical-align: middle;   /*单行文本垂直居中*/
   - 如果不能直接选中某个元素，通过继承性影响的话，那么权重是 0
 
 - 层叠性（重要）：**就是 CSS 处理冲突的能力**
-
+  
   - 计算权重
     - 当多个选择器，选择上了某个元素的时候，要按照如下顺序统计权重
       - ID 选择器
@@ -467,9 +685,9 @@ vertical-align: middle;   /*单行文本垂直居中*/
     - 总结
       - 选择上了，数权重(id 的数量，类的数量，标签的数量)。如果权重一样，谁写在后面听谁的
       - 没有选择上，通过继承影响的，就近原则，谁描述的近听谁的。如果描述的一样近，比如选择器权重，如果权重再一样重，谁写在后面听谁的
-
+  
   ![](http://img.smyhvae.com/20170727_2050.png)
-
+  
   - 权重问题
     - !important 标记优先级最高
       - !important 提升的是一个属性，而不是一个选择器
@@ -479,18 +697,19 @@ vertical-align: middle;   /*单行文本垂直居中*/
 ### 05 Box model
 
 - 盒子模型：div、span、a 都是盒子，但图片、表单元素一律看作是文本
-
+  
   - 种类
-
+    
     - 标准盒子模型
-
+      
       ![](http://img.smyhvae.com/2015-10-03-css-27.jpg)
-
+    
     - IE 盒子模型
-
+      
       ![](http://img.smyhvae.com/2015-10-03-css-30.jpg)
-
+  
   - 属性
+    
     - width：宽度和真实占有宽度，不是一个概念
       - 真实占有宽度 = 左 border + 左 padding + width + 右 padding + 右 border
     - height：同理，高度和真实占有高度也不是一个概念
@@ -581,7 +800,7 @@ vertical-align: middle;   /*单行文本垂直居中*/
 ### 08 CSS3 Selector
 
 - 原本的选择器
-
+  
   - 标签选择器：div
   - 类名选择器：.box
   - 伪类选择器：:link, :active, :visited, :hover
@@ -595,34 +814,37 @@ vertical-align: middle;   /*单行文本垂直居中*/
   - 选中 div 后面所有的 p：div~p
 
 - CSS3 中新增的选择器
-
+  
   - 属性选择器：[]
-
+    
     ![](http://img.smyhvae.com/20180207_1500.png)
-
+  
   - 结构伪类选择器：`:`
-
+  
   - 伪元素选择器：`::`![](http://img.smyhvae.com/20180207_1503.png)
 
 ### 09 CSS3 Attr
 
 - 文本
-  - 设置文本阴影：`text-shadow: 20px 27px 22px pink;`，四个参数分别表示为水平位移、垂直位移、模糊程度、阴影颜色
   
+  - 设置文本阴影：`text-shadow: 20px 27px 22px pink;`，四个参数分别表示为水平位移、垂直位移、模糊程度、阴影颜色
+
 - 盒模型：CSS3 中的定义，允许开发人员**指定盒子宽度和高度的计算方式**
+  
   - `box-sizing`
     - 外加模式：`content-box`，CSS 中的默认方式
     - 内减模式：`border-box`
-  
+
 - 私有前缀：用来处理兼容性问题的常见方法
 
 - 边框
+  
   - 边框圆角
     - `border-radius: 20px 60px 100px 140px;`表示为从左上开始，顺时针赋值。如果当前角没有值，取对角的值
     - `border-radius: 60px;`表示为四个角的半径都相同
   - 边框阴影
     - `box-shadow: 15px 21px 48px -2px #666;`，其中的五个值分别表示为水平偏移、垂直偏移、模糊程度、阴影大小、阴影颜色
-  
+
 - 过渡`transition`：实现元素不同状态间的平滑过渡，用来制作动画效果
   
   - 补间动画：自动完成从起始状态到终止状态的的过渡，不用管中间的状态
@@ -632,36 +854,40 @@ vertical-align: middle;   /*单行文本垂直居中*/
     - 过渡的持续时间：`transition-property: 1s;`
     - 运动曲线：`transition-timing-function: linear;`，有 ease、ease-in、ease-out、ease-in-out 可选
     - 过渡延迟：`transition-delay: 1s;`
-  
-- 2D transform：用来实现元素的**位移、旋转、变形、缩放**，甚至支持矩阵方式
 
+- 2D transform：用来实现元素的**位移、旋转、变形、缩放**，甚至支持矩阵方式
+  
   - 缩放`scale`：`transform: scale(x, y);`，x 和 y 分别表示水平和垂直方向的缩放倍数，值大于 1 表示放大，否则表示缩小
   - 位移`translate`：`transform: translate(-50%, -50%);`，正值：向右和向下；负值：向左和向上。如果只写一个值，则表示水平移动
   - 旋转`rotate`：`transform: rotate(45deg);`，正值：顺时针；负值：逆时针
   - 倾斜
 
 - 3D transform
-
+  
   - 旋转`rotateX, rotateY, rotateZ`：`transform: rotateX(360deg);`
+  
   - 移动`translateX, translateY, translateZ`：`transform: translateY(360px);`
+  
   - 透视`perspective`：透视可以将一个2D平面在转换的过程当中，呈现3D效果
+    
     - 作为一个属性，设置给父元素，作用于所有3D转换的子元素
     - 作为 transform 属性的一个值，做用于元素自身。如`perspective: 500px;`
-
+  
   - 3D 呈现 `transform-style
+    
     - `transform-style: preserve-3d; `
     - `transform-style: flat;`
 
 - 动画 `animation`
-
+  
   - 定义动画
-
+    
     - 通过 @keyframes 定义动画
-
+    
     ```CSS
     /* define */
     @keyframes ani_name{
-    		from{ 初始状态 }
+            from{ 初始状态 }
         to{ 结束状态 }
     }
     
@@ -671,14 +897,14 @@ vertical-align: middle;   /*单行文本垂直居中*/
     /* step 表示分几步执行 */
     steps(num)
     ```
-
+    
     - 将动画通过百分比分割成多个节点；然后各节点中分别定义各属性
     - 在指定元素里，通过 `animation` 属性调用动画
 
 ### 10 Flex Layout
 
 - 概念
-
+  
   - 弹性盒子：指的是使用 `display:flex` 或 `display:inline-flex` 声明的**父容器**，主要是用前者
     - `flex-direction`用来更换主轴和侧轴的方向的，包含 row, column, row-reverse, column-reverse 四个属性值
     - `flex-wrap`控制子元素溢出时的换行处理
@@ -692,7 +918,7 @@ vertical-align: middle;   /*单行文本垂直居中*/
   - 侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向，从上往下
 
 - flex 布局
-
+  
   - `display: flex`
   - 优势
     - **flex 布局的子元素不会脱离文档流**，很好地遵从了“流的特性”
@@ -755,7 +981,6 @@ vertical-align: middle;   /*单行文本垂直居中*/
       - 单行注释 //
       - 块级注释 /* */
 
-
 ## 03 CSS in Advanced
 
 WIP.
@@ -782,7 +1007,7 @@ WIP.
 
 WIP.
 
-## 05 Vue
+### 05 Vue
 
 WIP.
 

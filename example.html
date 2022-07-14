@@ -256,6 +256,56 @@
             console.log('Drag');
         }
     </script>
+
+    <script>
+        alert('This is an example for hi.js.')
+
+        var result = confirm('Welcome to hi.js page.');
+        console.log(result);
+
+        var pwd = prompt('Please enter the password:');
+        console.log(pwd);
+    </script>
+
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+
+        var timer = setInterval(() => {
+            countDown('2022/08/8 09:00:00');
+        }, 1);
+
+        function countDown(myTime) {
+            var nowTime = new Date();
+            var future = new Date(myTime);
+            var timeSum = future.getTime() - nowTime.getTime();
+
+            var day = parseInt(timeSum / 1000 / 60 / 60 / 24);
+            var hour = parseInt((timeSum / 1000 / 60 / 60) % 24);
+            var minu = parseInt((timeSum / 1000 / 60) % 60);
+            var sec = parseInt((timeSum / 1000) % 60);
+            var millsec = parseInt(timeSum % 1000);
+
+            day = day < 10 ? '0' + day : day;
+            hour = hour < 10 ? '0' + hour : hour;
+            minu = minu < 10 ? '0' + minu : minu;
+            sec = sec < 10 ? '0' + sec : sec;
+            if (millsec < 10) {
+                millsec = '00' + millsec;
+            } else if (millsec < 100) {
+                millsec = '0' + millsec;
+            }
+
+            if (timeSum < 0) {
+                div.innerHTML = '倒计时：00 天 00 小时 00 分 00 秒 000 毫秒';
+                clearInterval(timer);
+                return;
+            }
+
+            div.innerHTML = '倒计时：' + day + '天' + hour + '小时' + minu + '分' + sec + '秒' + millsec + '毫秒';
+        }
+    </script>
+
+
 </body>
 
 </html>

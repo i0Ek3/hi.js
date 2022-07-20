@@ -1591,7 +1591,127 @@ vertical-align: middle;   /*单行文本垂直居中*/
         
         - 事件驱动程序：对样式和 html 的操作，也就是 DOM
       
-      - 编写步骤
+      - 事件的绑定
+        
+        - 方法一：DOM0的写法：onclick
+        
+        ```html
+        element.onclick = function () {
+        
+        }
+        ```
+        
+        - 方法二：DOM2的写法：addEventListener
+        
+        ```html
+        // 高版本浏览器
+        element.addEventListener('click', function () {
+        
+        }, false);
+        
+        参数1：事件名的字符串(注意，没有on)
+        参数2：回调函数：当事件触发时，该函数会被执行
+        参数3：true表示捕获阶段触发，false表示冒泡阶段触发（默认）。如果不写，则默认为false
+        
+        // IE8及以下版本浏览器
+        element.attachEvent('onclick', function () {
+        
+        });
+        
+        参数1：事件名的字符串(注意，有on)
+        参数2：回调函数：当事件触发时，该函数会被执行
+        ```
+      
+      - 事件对象
+        
+        - 当事件的响应函数被触发时，会产生一个事件对象`event`。浏览器每次都会将这个事件`event`作为实参传进之前的响应函数。这个对象中包含了与当前事件相关的一切信息。比如鼠标的坐标、键盘的哪个按键被按下、鼠标滚轮滚动的方向等
+        
+        - 获取 event 对象
+        
+        ```html
+        event = event || window.event; // 兼容性写法
+        ```
+        
+        - event 属性
+        
+        ![](http://img.smyhvae.com/20180203_1739.png)
+      
+      - 事件传播
+        
+        - 事件传播的三个阶段分别是：事件捕获、事件冒泡和目标)
+          
+          ![](http://img.smyhvae.com/20180204_1218.jpg)
+          
+          - 事件捕获阶段：事件从祖先元素往子元素查找（DOM树结构），直到捕获到事件目标 target。在这个过程中，默认情况下，事件相应的监听函数是不会被触发的
+            
+            - 捕获阶段，事件依次传递的顺序是：window --> document --> html--> body --> 父元素、子元素、目标元素
+            
+            ```html
+            // addEventListener 可以捕获事件
+            box1.addEventListener("click", function () {
+                    alert("捕获 box3");
+            }, true);
+            ```
+          
+          - 事件目标：当到达目标元素之后，执行目标元素该事件相应的处理函数。如果没有绑定监听函数，那就不执行
+          
+          - 事件冒泡阶段：事件从事件目标 target 开始，从子元素往冒泡祖先元素冒泡，直到页面的最上一级标签
+      
+      - 事件冒泡
+        
+        - 当一个元素上的事件被触发的时候（比如说鼠标点击了一个按钮），同样的事件将会在那个元素的所有**祖先元素**中被触发，这一过程被称为事件冒泡，这个事件从原始元素开始一直冒泡到 DOM 树的最上层
+        
+        - 通俗来讲，冒泡指的是**子元素的事件被触发时，父元素的同样的事件也会被触发**，取消冒泡就是取消这种机制
+        
+        - 冒泡顺序
+          
+          - 一般的浏览器: （除IE6.0之外的浏览器）：div -> body -> html -> document -> window
+          
+          - IE6.0：div -> body -> html -> document
+        
+        - 以下事件不冒泡：blur、focus、load、unload、onmouseenter、onmouseleave，即事件不会往父元素那里传递
+        
+        - 阻止冒泡
+        
+        ```html
+        //w3c的方法（火狐、谷歌、IE11）
+        event.stopPropagation();
+         
+        // IE10 以下
+        event.cancelBubble = true
+        ```
+      
+      - 事件委托
+        
+        - 把一个元素响应事件（click、keydown......）的函数委托到另一个元素
+        
+        - 事件委托是利用了冒泡机制，减少了事件绑定的次数，减少内存消耗，提高性能
+      
+      - 键盘事件
+        
+        - 拖拽事件
+          
+          - 拖拽流程
+            
+            - `onmousedown`：当鼠标在被拖拽元素上按下时，开始拖
+            
+            - `onmousemove`：当鼠标移动时被拖拽元素跟随鼠标移动
+            
+            - `onmouseup`：当鼠标松开时，被拖拽元素固定在当前位置
+        
+        - 滚轮事件
+          
+          - `onmousewheel`：鼠标滚轮滚动的事件，会在滚轮滚动时触发。但是火狐不支持该属性
+          
+          - `DOMMouseScroll`：在火狐中需要使用 DOMMouseScroll 来绑定滚动事件。注意该事件需要通过 addEventListener() 函数来绑定
+        
+        - 键盘事件
+          
+          - `onkeydown`：按键被按下
+          
+          - `onkeyup`：按键被松开
+      
+      - 事件编写步骤
         
         - 获取事件源 div
           
@@ -1688,6 +1808,12 @@ vertical-align: middle;   /*单行文本垂直居中*/
             - 属性节点（属性）：元素的属性
             
             - 文本节点（文本）：HTML 标签中的文本内容（包括标签之间的空格、换行）
+          
+          - 获取节点
+            
+            - 获取 html 节点：`document.documentElement`
+            
+            - 获取 body 节点：``document.body
         
         - **解析过程**： HTML 加载完毕，渲染引擎会在内存中把 HTML 文档生成一棵 DOM 树，getElementById 获取内存中 DOM 上的元素节点，操作的时候修改的是该元素的**属性**)
         
@@ -1814,6 +1940,118 @@ vertical-align: middle;   /*单行文本垂直居中*/
           - nodeType == 3 是文本节点
         
         - nodeType、nodeName、nodeValue
+        
+        - style 属性：style 是一个对象，只能获取行内样式，不能获取内嵌的样式和外链的样式
+          
+          - DOM 中设置样式的方式
+            
+            - className（针对内嵌样式）
+            
+            - style（针对行内样式）
+              
+              - 通过 JS 读取元素的样式
+              
+              ```html
+                元素.style.样式名; // 1
+              
+                 元素.style["属性"]; // 2 可以给属性传递参数
+              ```
+              
+              - 通过 JS 设置元素的样式
+              
+              ```html
+              元素.style.样式名 = 样式值;
+              ```
+              
+              - 通过 JS 获取元素当前显示的样式
+              
+              ```html
+              // w3c 的做法
+              window.getComputedStyle("要获取样式的元素", "伪元素");  
+              
+              // IE 和 Opera 的做法
+               obj.currentStyle;
+              ```
+          
+          - 注意事项
+            
+            - 样式少的时候使用
+            
+            - style 是对象
+            
+            - 值是字符串，没有设置值是`""`
+            
+            - 命名规则，驼峰命名
+            
+            - 只能获取行内样式，和内嵌和外链无关
+            
+            - box.style.cssText = “字符串形式的样式”
+          
+          - 常用属性
+            
+            - backgroundColor
+            
+            - backgroundImage
+            
+            - color
+            
+            - width
+            
+            - height
+            
+            - border
+            
+            - opacity 设置透明度
+        
+        - offset 属性
+          
+          - JS 中有一套方便的**获取元素尺寸**的办法就是 offset 家族
+            
+            - offsetWidth/offsetHight：获取元素的**宽高 + padding + border**，不包括margin
+              
+              - offsetWidth = width + padding + border
+              
+              - offsetHeight = Height + padding + border
+            
+            - offsetLeft：当前元素相对于其**定位父元素**的水平偏移量
+            
+            - offsetTop：当前元素相对于其**定位父元素**的垂直偏移量
+            
+            - offsetParent：获取当前元素的**定位父元素**
+              
+              - 如果当前元素的父元素，**有CSS定位**（position为absolute、relative、fixed），那么 `offsetParent` 获取的是**最近的**那个父元素
+              
+              - 如果当前元素的父元素，**没有CSS定位**（position为absolute、relative、fixed），那么`offsetParent` 获取的是**body**
+            
+            - offsetLeft 和 style.left 区别：**用 offsetLeft 和 offsetTop 获取值，用 style.left 和 style.top 赋值**
+              
+              - style.left：只能获取行内式，获取的值可能为空，容易出现NaN
+              
+              - offsetLeft：获取值特别方便，而且是现成的number，方便计算。它是只读的，不能赋值
+        
+        - scroll 属性
+        
+        - client 属性
+        
+        - 动画
+          
+          - JS 动画的主要内容
+            
+            - 三大家族和一个事件对象
+              
+              - 三大家族：offset/scroll/client，也叫三大系列
+              
+              - 事件对象/event（事件被触动时，鼠标和键盘的状态，通过属性控制）
+            
+            - 动画种类
+              
+              - 闪现
+              
+              - 匀速（重点）
+              
+              - 缓动（重点）
+            
+            - 冒泡/兼容/封装
       
       - 文档的加载
         

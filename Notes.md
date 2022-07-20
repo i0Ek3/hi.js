@@ -2030,8 +2030,115 @@ vertical-align: middle;   /*单行文本垂直居中*/
               - offsetLeft：获取值特别方便，而且是现成的number，方便计算。它是只读的，不能赋值
         
         - scroll 属性
+          
+          - 当我们用鼠标滚轮，滚动网页的时候，会触发 window.onscroll() 方法
+          
+          - 属性
+            
+            - `ScrollWidth` 和 `scrollHeight`：获取元素**整个滚动区域**的宽、高。包括 width 和 padding，不包括 border 和 margin
+            
+            - `scrollLeft`：获取水平滚动条滚动的距离。`scrollTop`：获取垂直滚动条滚动的距离
+            
+            - 当某个元素满足`scrollHeight - scrollTop == clientHeight`时，说明垂直滚动条滚动到底了。当某个元素满足`scrollWidth - scrollLeft == clientWidth`时，说明水平滚动条滚动到底了
+            
+            - 兼容性写法
+            
+            ```html
+            window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+            ```
+            
+            - 判断是否已经 DTD 声明
+            
+            ```html
+            document.compatMode === "CSS1Compat"   // 已声明
+            document.compatMode === "BackCompat"   // 未声明
+            ```
+            
+            - 获取 html 文档的方法
+              
+              - `document.title` 文档标题；
+              
+              - `document.head` 文档的头标签
+              
+              - `document.body` 文档的body标签；
+              
+              - `document.documentElement` （这个很重要）
         
         - client 属性
+          
+          - clientWidth 和 clientHeight
+            
+            - 元素调用时
+              
+              - clientWidth：获取元素的可见宽度（width + padding）
+              
+              - clientHeight：获取元素的可见高度（height + padding）
+            
+            - body/html 调用时
+              
+              - clientWidth：获取网页可视区域宽度
+              
+              - clientHeight：获取网页可视区域高度
+          
+          - clientX 和 clientY
+            
+            - event调用：
+              
+              - clientX：鼠标距离可视区域左侧距离
+              
+              - clientY：鼠标距离可视区域上侧距离
+          
+          - clientTop 和 clientLeft
+            
+            - clientTop：盒子的上border
+            
+            - clientLeft：盒子的左border
+          
+          - 获取浏览器的宽高（可视区域）
+          
+          - 获取显示器分辨率
+          
+          ```html
+          window.onresize = function () {
+              document.title = window.screen.width + "    " + window.screen.height;
+          }
+          ```
+        
+        - offset/scroll/client三大属性的区别
+          
+          - 区别1：宽高
+            
+            - offsetWidth = width + padding + border
+            
+            - offsetHeight = height + padding + border
+            
+            - scrollWidth = 内容宽度（不包含border）
+            
+            - scrollHeight = 内容高度（不包含border）
+            
+            - clientWidth = width + padding
+            
+            - clientHeight = height + padding
+          
+          - 区别2：上左
+            
+            - offsetTop/offsetLeft
+              
+              - 调用者：任意元素(盒子为主)
+              
+              - 作用：距离父系盒子中带有定位的距离
+            
+            - scrollTop/scrollLeft
+              
+              - 调用者：document.body.scrollTop（window调用）(盒子也可以调用，但必须有滚动条)
+              
+              - 作用：浏览器无法显示的部分（被卷去的部分）
+            
+            - clientY/clientX
+              
+              - 调用者：event
+              
+              - 作用：鼠标距离浏览器可视区域的距离（左、上）
         
         - 动画
           
@@ -2050,6 +2157,20 @@ vertical-align: middle;   /*单行文本垂直居中*/
               - 匀速（重点）
               
               - 缓动（重点）
+                
+                - 原理：在移动的过程中，步长越来越小
+                  
+                  - ```html
+                    盒子位置 = 盒子本身位置 + (目标位置 - 盒子本身位置)/ 10；
+                    ```
+                
+                - 常用的三个函数
+                  
+                  - Math.ceil() 向上取整
+                  
+                  - Math.floor() 向下取整
+                  
+                  - Math.round(); 四舍五入
             
             - 冒泡/兼容/封装
       

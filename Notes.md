@@ -1579,9 +1579,247 @@ vertical-align: middle;   /*单行文本垂直居中*/
         
         - `var varName = /expression/;`
     
-    - 事件
+    - 事件：就是文档或浏览器窗口中发生的一些特定的交互瞬间
+      
+      - 三要素：**事件源、事件、事件驱动程序**
+        
+        - 事件源：引发后续事件的 html 标签
+        
+        - 事件：JS 已经定义好了
+        
+        ![](http://img.smyhvae.com/20180126_1553.png)
+        
+        - 事件驱动程序：对样式和 html 的操作，也就是 DOM
+      
+      - 编写步骤
+        
+        - 获取事件源 div
+          
+          - 获取方式
+          
+          ```html
+          var div1 = document.getElementById("box1");      //方式一：通过id获取单个标签
+          
+          var arr1 = document.getElementsByTagName("div");     //方式二：通过 标签名 获得 标签数组，所以有s
+          
+          var arr2 = document.getElementsByClassName("hehe");  //方式三：通过 类名 获得 标签数组，所以有s
+          ```
+        
+        - 绑定事件 onclick： div.onclick = function(){ 事件驱动程序 };
+          
+          - 绑定方式
+            
+            - 直接绑定匿名函数
+            
+            ```html
+            <div id="box1" ></div>
+            
+            <script type="text/javascript">
+                var div1 = document.getElementById("box1");
+                //绑定事件的第一种方式
+                div1.onclick = function () {
+                    alert("我是弹出的内容");
+                }
+            </script>
+            ```
+            
+            - 先单独定义函数，再绑定
+            
+            ```html
+             <div id="box1" ></div>
+            
+            <script type="text/javascript">
+                var div1 = document.getElementById("box1");
+                //绑定事件的第二种方式
+                div1.onclick = fn;   //注意，这里是fn，不是fn()。fn()指的是返回值。
+                //单独定义函数
+                function fn() {
+                    alert("我是弹出的内容");
+                }
+            </script>
+            ```
+            
+            - 行内绑定
+            
+            ```html
+            <!--行内绑定-->
+            <div id="box1" onclick="fn()"></div>
+            
+            <script type="text/javascript">
+            
+                function fn() {
+                    alert("我是弹出的内容");
+                }
+            
+            </script>
+            ```
+        
+        - 书写事件驱动程序：关于 DOM 的操作
+        
+        ```html
+        <body>
+        <div id="box1"></div>
+        
+        <script type="text/javascript">
+            // 1、获取事件源
+            var div = document.getElementById("box1");
+            // 2、绑定事件
+            div.onclick = function () {
+                // 3、书写事件驱动程序
+                alert("我是弹出的内容");
+            }
+        </script>
+        
+        </body>
+        ```
     
-    - DOM
+    - DOM：文档对象模型（Document object Model），操作**网页上的元素**的API，如让盒子移动、变色、轮播图等
+      
+      - DOM 由节点组成
+        
+        - 节点：构成 HTML 网页的最基本单元。网页中的每一个部分都可以称为是一个节点，比如 html标签、属性、文本、注释、整个文档等都是一个节点
+          
+          - 分类：所有的节点都是 Object
+            
+            - 文档节点（文档）：整个 HTML 文档
+            
+            - 元素节点（标签）：HTML 标签
+            
+            - 属性节点（属性）：元素的属性
+            
+            - 文本节点（文本）：HTML 标签中的文本内容（包括标签之间的空格、换行）
+        
+        - **解析过程**： HTML 加载完毕，渲染引擎会在内存中把 HTML 文档生成一棵 DOM 树，getElementById 获取内存中 DOM 上的元素节点，操作的时候修改的是该元素的**属性**)
+        
+        ![](http://img.smyhvae.com/20180126_2105.png)
+        
+        - DOM 可以做什么
+          
+          - 找对象（元素节点）
+          
+          - 设置元素的属性值
+          
+          - 设置元素的样式
+          
+          - 动态创建和删除元素
+          
+          - 事件的触发响应：事件源、事件、事件的驱动程序
+        
+        - 元素节点的获取
+          
+          - 获取 DOM 节点的方式（上面的笔记里已经覆盖）
+        
+        - DOM 访问关系（属性）的获取
+          
+          ![](http://img.smyhvae.com/20180126_2145.png)
+          
+          - 获取父节点
+            
+            - ```html
+              节点.parentNode
+              ```
+          
+          - 获取兄弟节点
+            
+            - ```html
+              下一个兄弟节点 = 节点.nextElementSibling || 节点.nextSibling
+              前一个兄弟节点 = 节点.previousElementSibling || 节点.previousSibling
+              兄弟节点 = 节点自己.parentNode.children[index];
+              ```
+          
+          - 获取单个的子节点
+            
+            - ```html
+              第一个子元素节点 = 节点.firstElementChild || 节点.firstChild
+              最后一个子元素节点 = 节点.lastElementChild || 节点.lastChild
+              ```
+          
+          - 获取所有的子节点
+            
+            - ```html
+              子节点数组 = 父节点.childNodes;  // 1
+              子节点数组 = 父节点.children;  // 2
+              ```
+        
+        - DOM 节点的操作（函数或者方法）
+          
+          - 创建节点
+            
+            - ```html
+              新的标签(元素节点) = document.createElement("标签名");
+              ```
+          
+          - 插入节点
+            
+            - ```html
+              父节点.appendChild(新的子节点);
+              父节点.insertBefore(新的子节点,作为参考的子节点);
+              ```
+          
+          - 删除节点
+            
+            - ```html
+              父节点.removeChild(子节点);
+              ```
+          
+          - 复制（克隆）节点
+            
+            - ```html
+              要复制的节点.cloneNode(); // 不带参数/带参数false：只复制节点本身，不复制子节点
+              要复制的节点.cloneNode(true); // 带参数true：既复制节点本身，也复制其所有的子节点
+              ```
+        
+        - 设置节点的属性
+          
+          - 获取节点的属性值
+            
+            - ```html
+              // 1
+              元素节点.属性名;
+              元素节点[属性名];
+              
+              // 2
+              元素节点.getAttribute("属性名称");
+              ```
+          
+          - 设置节点的属性值
+            
+            - ```html
+              myNode.src = "images/2.jpg"   //修改src的属性值
+              myNode.className = "image2-box";  //修改class的name
+              
+              元素节点.setAttribute("属性名", "新的属性值");
+              ```
+          
+          - 删除节点属性
+            
+            - ```html
+              元素节点.removeAttribute(属性名);
+              ```
+      
+      - 属性补充
+        
+        - innerHTML 和 innerText 的区别
+          
+          - **innerHTML**：双闭合标签里面的内容（包含标签）
+          
+          - **innerText**：双闭合标签里面的内容（不包含标签）
+        
+        - nodeType
+          
+          - **nodeType == 1 表示的是元素节点**（标签），即这里的元素就是标签
+          
+          - nodeType == 2 表示是属性节点
+          
+          - nodeType == 3 是文本节点
+        
+        - nodeType、nodeName、nodeValue
+      
+      - 文档的加载
+        
+        - 浏览器在加载一个页面时，是按照自上向下的顺序加载的，读取到一行就运行一行。如果将 script 标签写到页面的上边，在代码执行时，页面还没有加载，页面没有加载 DOM 对象也没有加载，会导致无法获取到 DOM 对象
+        
+        - onload 事件会在整个页面加载完成之后才触发。为 window 绑定一个onload 事件，该事件对应的响应函数将会在页面加载完成之后执行，这样可以确保我们的代码执行时所有的DOM对象已经加载完毕了
     
     - BOM
     

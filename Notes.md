@@ -2182,11 +2182,149 @@ vertical-align: middle;   /*单行文本垂直居中*/
     
     - BOM
     
+      - BOM 是构成 JavaScript 基础的一份子，另外两个分别是 DOM 和 ECMAScript 标准
+      - BOM 是浏览器对象模型（Browser Object Model），是能够操作浏览器部分功能的API，如让浏览器自动滚动
+      - 常见 BOM 对象
+        - Window：代表整个浏览器的窗口，同时 window 也是网页中的全局对象
+        - Navigator：代表当前浏览器的信息，通过该对象可以识别不同的浏览器
+        - Location：代表当前浏览器的地址栏信息，通过 Location 可以获取地址栏信息，或者操作浏览器跳转页面
+        - History：代表浏览器的历史记录，通过该对象可以操作浏览器的历史记录。由于隐私原因，该对象不能获取到具体的历史记录，只能操作浏览器向前或向后翻页，而且该操作只在当次访问时有效
+        - Screen：代表用户的屏幕信息，通过该对象可以获取用户的显示器的相关信息
+    
     - 定时器
+    
+      - 常见方法
+        - setInterval()：循环调用。将一段代码，每隔一段时间执行一次
+        - setTimeout()：延时调用。将一段代码，等待一段时间之后再执行
     
     - jQuery
     
+      - jQuery 是 JS 的一个库，封装了我们开发过程中常用的一些功能，方便我们调用，提高开发效率
+    
+      - 特点
+    
+        - 链式调用
+        - 隐式迭代
+    
+      - 使用 jQuery 的基本步骤
+    
+        - 引入包
+    
+        - 入口函数
+    
+          - 和 JS 的入口函数的区别
+    
+            - JS 中只能有一个入口函数，多个入口函数会存在覆盖关系，jQuery 中则没有该限制
+            - JS 的入口函数是在所有的文件资源加载完成后，才执行。这些文件资源包括：页面文档、外部的js文件、外部的css文件、图片等；jQuery 的入口函数是在文档加载完成后就执行。文档加载完成指的是：DOM 树加载完成后，就可以操作 DOM 了，不用等到所有的外部资源加载完成
+    
+          - 写法
+    
+            ```javascript
+            // 1.文档加载完毕，图片不加载的时候，就可以执行这个函数。
+                   $(document).ready(function () {
+                       alert(1);
+                   })
+            
+            // 2.文档加载完毕，图片不加载的时候，就可以执行这个函数。
+                   $(function () {
+                       alert(1);
+                   });
+            
+            // 3.文档加载完毕，图片也加载完毕的时候，在执行这个函数。
+                   $(window).ready(function () {
+                       alert(1);
+                   })
+            ```
+    
+            
+    
+        - 功能实现（事件处理）
+    
+      - jQuery 中对象和 JS 中的 DOM 对象
+    
+        - 区别
+          - 通过 jQuery 获取的元素是一个数组，数组中包含着原生 JS 中的 DOM 对象
+        - 转换
+          - DOM -> JS Obj: $(JS Obj);
+          - JQuery -> DOM: jQuery-Obj[idx];
+    
+      - jQuery 选择器
+    
+        - JS 选择器
+    
+        > ![](http://img.smyhvae.com/20180204_2122.png)
+    
+        - jQuery 基本选择器
+    
+        > ![](http://img.smyhvae.com/20180204_2125.png)
+    
+        > ![](http://img.smyhvae.com/20180204_2126.png)
+    
+        - 层级选择器
+    
+        > ![](http://img.smyhvae.com/20180204_2138.png)
+    
+        > ![](http://img.smyhvae.com/20180204_2139.png)
+    
+        - 基本过滤选择器
+    
+        > ![](http://img.smyhvae.com/20180204_2150.png)
+    
+        > ![](http://img.smyhvae.com/20180204_2151.png)
+    
+        - 属性选择器
+    
+        > ![](http://img.smyhvae.com/20180204_2155.png)
+    
+        - 筛选选择器
+    
+        > ![](http://img.smyhvae.com/20180204_2200.png)
+    
+      - jQuery 动画
+    
+        - 显示动画
+    
+        - ```javascript
+          $("div").show();
+          $("div").show(2000);
+          $("div").show("slow");
+          
+          //show(毫秒值，回调函数;
+          $("div").show(5000,function () {
+              alert("动画执行完毕！");
+          });
+          ```
+    
+        - 隐藏动画
+    
+        - ```javascript
+          $(selector).hide();
+          
+          $(selector).hide(1000);
+          
+          $(selector).hide("slow");
+          
+          $(selector).hide(1000, function(){});
+          ```
+    
+        - 滑入滑出
+          - 滑入：`$(selector).slideDown(speed, 回调函数);`
+          - 滑出：`$(selector).slideUp(speed, 回调函数);`
+          - 切换：`$(selector).slideToggle(speed, 回调函数);`
+        - 淡入淡出
+          - 淡入：`$(selector).fadeIn(speed, callback);`
+          - 淡出：`$(selector).fadeOut(1000);`
+          - 切换：`$(selector).fadeToggle('fast', callback);`
+        - 自定义动画：`$(selector).animate({params}, speed, callback);`
+        - 停止动画：`$(selector).stop(true, false);`
+    
+      - jQuery 操作 DOM
+    
+      - jQuery 事件机制
+    
     - Zepto
+    
+      - 轻量级的 JavaScript 库，专门为移动端定制的框架
 
 ## 05 Misc
 
